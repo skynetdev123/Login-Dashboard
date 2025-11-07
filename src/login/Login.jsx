@@ -14,7 +14,7 @@ export const Login = () => {
         setInput({...input,password:e.target.value})
     }   
     
-    function getData(){
+    function postData(){
           axios.post("https://api.escuelajs.co/api/v1/auth/login",input)
            .then((res)=>{
             localStorage.setItem("token",JSON.stringify(res.data.access_token))
@@ -26,7 +26,7 @@ export const Login = () => {
         }
       function handleSubmit(e){
         e.preventDefault();
-        getData()
+        postData()
         navigate('/profile')
         }
        
